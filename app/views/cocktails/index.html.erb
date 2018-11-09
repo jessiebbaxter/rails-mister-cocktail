@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=08cb0ebaadb99995755a696a9710b229&auto=format&fit=crop&w=3031&q=80');">
+	<div class="banner-content">
+	  <h1>Cocktails</h1>
+	  <p>Create your own or browse through our favorites</p>
+	  <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary btn-lg"%>
+ </div>
+</div>
+<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<% @cocktails.each do |cocktail| %>
+				<div class="col-xs-12 col-sm-4">
+					<div class="card">
+						<h4><%= link_to "#{cocktail.name.upcase}", cocktail_path(cocktail)%></h4>
+						<p><%= cocktail.heart %></p>
+						<p><%= cocktail.description %></p>
+					</div>
+				</div>	
+			<% end  %>
+		</div>
+	</div>
+</div>
