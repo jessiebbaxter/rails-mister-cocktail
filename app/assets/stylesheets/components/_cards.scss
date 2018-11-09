@@ -6,7 +6,15 @@
   color: white;
   position: relative;
   background-color: #dbdbdb;
+  margin: 5px;
 }
+
+.card-content {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 .card-user {
   position: absolute;
   right: 10px;

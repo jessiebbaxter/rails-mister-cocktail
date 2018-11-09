@@ -1,6 +1,5 @@
 <div class="wrapper">
 	<div class="container">
-		<%= link_to "<< Back to cocktails", cocktails_path%>
 		<h1><%= @cocktail.name.upcase %></h1>
 		<p><%= @cocktail.description %></p>
 		<% if @cocktail.doses.empty?  %>

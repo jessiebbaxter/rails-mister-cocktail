@@ -1,3 +1,3 @@
 import 'bootstrap';
 
-console.log('Hello World from Webpacker')
+console.log("Hello from app/javascript/packs/application.js!");
