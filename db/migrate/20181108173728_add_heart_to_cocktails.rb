@@ -1,5 +1,5 @@
 class AddHeartToCocktails < ActiveRecord::Migration[5.2]
   def change
-  	add_column :cocktails, :heart, :integer
+  	add_column :cocktails, :hearts, :integer, default: 0
   end
 end

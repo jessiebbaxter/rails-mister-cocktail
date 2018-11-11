@@ -1,0 +1,10 @@
+button { 
+	border:0; 
+	padding-right: 0px;
+	background:none;
+	transition: all .2s ease-in-out; 
+	&:hover {
+		color: rgb(192, 24, 48);
+		transform: scale(1.3);
+	}
+}

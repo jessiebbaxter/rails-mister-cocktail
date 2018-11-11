@@ -1,46 +1,54 @@
 .card {
-  height: 175px;
-  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 420px;
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: #686767;
   position: relative;
-  background-color: #dbdbdb;
-  margin: 5px;
+  background-color: white;
+  margin: 10px 0px;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
 }
-
+.card-img {
+  height: 300px;
+}
 .card-content {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  padding: 0px 15px;
+  width: 100%;
+  height: 120px;
+  a {
+    color: #686767;
+  }
 }
-
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
+.card-header {
+  display: flex;
 }
-.card-category {
+.card-hearts {
+  display: flex;
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
+  top: 12px;
+  right: 15px;
+  p {
+    padding-left: 5px;
+    line-height: 1.1;
+    margin-bottom: 0px;
+    margin-top: 3px;
+  }
+}
+.card-title {
+  width: auto;
+  h4 {
+    font-size: 19px;
+  }
 }
 .card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
+  font-size: 15px;
+  hr {
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 .card-link {
   position: absolute;

@@ -1,3 +1,4 @@
 import 'bootstrap';
 
-console.log("Hello from app/javascript/packs/application.js!");
+import { initAddCocktailOnClick } from '../components/modal';
+initAddCocktailOnClick();

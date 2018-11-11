@@ -1,33 +1,40 @@
 <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=08cb0ebaadb99995755a696a9710b229&auto=format&fit=crop&w=3031&q=80');">
 	<div class="banner-content">
-	  <h1>Cocktails</h1>
+	  <h1>Tipsy Coder</h1>
 	  <p>Create your own or browse through our favorites</p>
 
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newCocktailModal">
 		  Add a cocktail
 		</button>
 
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="newCocktailModal" tabindex="-1" role="dialog" aria-labelledby="newCocktailModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		        <h4 class="modal-title text-left" id="newCocktailModalLabel">Let's start with a name...</h4>
 		      </div>
 		      <div class="modal-body">
-		        ...
+		      	<div class="modal-form">
+		      		<%= simple_form_for @cocktail do |f| %>
+						<%= f.input :name %>
+						<%= f.input :description %>
+						<%= f.input :photo %>
+  						<%= f.input :photo_cache, as: :hidden %>
+					<% end %>
+		      	</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-primary" id="add-button">Add</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 
- </div>
+ 	</div>
 </div>
 <div class="wrapper">
 	<div class="container">
@@ -35,10 +42,25 @@
 			<% @cocktails.each do |cocktail| %>
 				<div class="col-xs-12 col-sm-4">
 					<div class="card">
+						<div class="card-img" style="background-image: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+						</div>
 						<div class="card-content">
-							<h4><%= link_to "#{cocktail.name.upcase}", cocktail_path(cocktail)%></h4>
-							<p><%= cocktail.heart %></p>
-							<p><%= cocktail.description %></p>
+							<div class="card-header">
+								<div class="card-title">
+									<h4><%= link_to "#{cocktail.name.downcase.capitalize}", cocktail_path(cocktail)%></h4>
+								</div>
+								<div class="card-hearts">
+									<%= simple_form_for(cocktail, method: :patch, url: cocktail_heart_path(cocktail)) do |f| %>
+				  						<%= f.input :id, as: :hidden %>
+				  					<button type="submit"><i class="fas fa-heart"></i></button>	
+									<% end %>
+									<p>(<%= cocktail.hearts %>)</p>
+								</div>
+							</div>
+							<div class="card-description">
+								<hr>
+								<p><%= cocktail.description %></p>
+							</div>
 						</div>
 					</div>
 				</div>	
